@@ -1,8 +1,19 @@
-# UDACITY PROJECT - Document Assistant Project Instructions
+# Udacity Project – Document Assistant
+
+This repository is based on the starter template provided by Udacity for the LangChain/LangGraph course project.
+
+## What I implemented
+My original contributions are primarily the parts marked with `#TODO` in the codebase (as required by the project instructions). I also applied small integration fixes (imports, typing, and minor wiring changes) to ensure the project runs end-to-end as expected.
+
+## Tooling
+I used VS Code GitHub Copilot (non-agent mode) for code completion and refactoring suggestions. Copilot did not generate the full solution; I reviewed, edited, and implemented all final changes myself in accordance with Udacity’s Honor Code.
+
+## Source
+Udacity course project: [LangChain Agentic AI Fundamentals](https://www.udacity.com/enrollment/cd14639)
+
+## Intro
 
 Welcome to the Document Assistant project! This project will help you build a sophisticated document processing system using LangChain and LangGraph. You'll create an AI assistant that can answer questions, summarize documents, and perform calculations on financial and healthcare documents.
-
-get the full course [here](https://www.udacity.com/enrollment/cd14639)
 
 ## Project Overview
 
