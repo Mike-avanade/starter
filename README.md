@@ -1,6 +1,8 @@
-# Document Assistant Project Instructions
+# UDACITY PROJECT - Document Assistant Project Instructions
 
 Welcome to the Document Assistant project! This project will help you build a sophisticated document processing system using LangChain and LangGraph. You'll create an AI assistant that can answer questions, summarize documents, and perform calculations on financial and healthcare documents.
+
+get the full course [here](https://www.udacity.com/enrollment/cd14639)
 
 ## Project Overview
 
