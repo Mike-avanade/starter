@@ -14,8 +14,9 @@ from datetime import datetime
 class ToolLogger:
     """Logs tool usage with automatic persistence"""
 
-    def __init__(self, logs_dir: str = "./logs", session_id: str = None):
+    def __init__(self, logs_dir: str = "./logs", session_id: str = None, max_logs: int = 1000):
         self.logs = []
+        self.max_logs = max_logs
         self.logs_dir = logs_dir
         self.session_id = session_id
 
@@ -45,6 +46,8 @@ class ToolLogger:
 
     def _auto_save(self):
         """Automatically save logs to persistent file"""
+        if len(self.logs) > self.max_logs:
+            self.logs = self.logs[-self.max_logs:]  # Keep only recent logs
         try:
             with open(self.log_file, 'w') as f:
                 json.dump(self.logs, f, indent=2)

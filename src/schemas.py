@@ -16,7 +16,17 @@ class DocumentChunk(BaseModel):
 # This schema should include fields for the question, answer, sources, confidence, and timestamp.
 # Refer to README.md Task 1.1 for detailed field requirements.
 class AnswerResponse(BaseModel):
-    """Structured response for Q&A tasks"""
+    """Structured response for Q&A tasks
+    
+    Example:
+    {
+        "question": "What is the total in invoice INV-001?",
+        "answer": "$20,000",
+        "sources": ["INV-001"],
+        "confidence": 0.95,
+        "timestamp": "2024-01-15T10:30:00"
+    }
+    """
     question: str = Field(description="The original user question")
     answer: str = Field(description="The generated answer")
     sources: List[str] = Field(default_factory=list, description="List of source document IDs used")
