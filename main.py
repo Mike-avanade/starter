@@ -105,6 +105,7 @@ def main():
             # Process the message
             print("\nProcessing...", color='yellow')
             result = assistant.process_message(user_input)
+            sources = result.get("sources") or result.get("active_documents") or []
 
             if result["success"]:
                 print("\n🤖 Assistant:", end=" ")
@@ -114,8 +115,8 @@ def main():
                 if result.get("intent"):
                     intent = result["intent"]
                     print(f"\nINTENT: {intent['intent_type']}", color='green')
-                if result.get("active_documents"):
-                    print(f"\nSOURCES: {', '.join(result['active_documents'])}", color='blue')
+                if sources:
+                    print(f"\nSOURCES: {', '.join(sources)}", color='blue')
                 if result.get("tools_used"):
                     print(f"\nTOOLS USED: {', '.join(result['tools_used'])}", color='magenta')
                 if result.get("summary"):

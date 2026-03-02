@@ -127,7 +127,12 @@ class DocumentAssistant:
         }
 
         if not self.current_session:
-            raise ValueError("No active session. Call start_session() first.")
+            return {
+                "success": False,
+                "error": "No active session. Call start_session() first.",
+                "response": None
+            }
+        
         initial_state: AgentState = {
             "messages": [],
             "user_input": user_input,

@@ -1,6 +1,6 @@
 """
 Tool definitions for the agent using @tool decorator
-Think of these as the agent's Swiss Army knife 🔧 - each tool has a specific purpose!
+Think of these as the agent's Swiss Army knife - each tool has a specific purpose!
 """
 
 from typing import Dict, Any, List, Optional, Literal
@@ -184,7 +184,7 @@ def create_calculator_tool(logger: ToolLogger):
                 {"result": result},
             )
 
-            return f"Result: {result}"
+            return str(result)
         except Exception as e:
             error_msg = f"Error evaluating expression: {str(e)}"
             logger.log_tool_use(
@@ -460,9 +460,11 @@ def get_all_tools(retriever, logger: ToolLogger) -> List:
     """
     Get all available tools for the agent.
     """
-    return [
+    tools = [
         create_calculator_tool(logger),
         create_document_search_tool(retriever, logger),
         create_document_reader_tool(retriever, logger),
         create_document_statistics_tool(retriever, logger)
     ]
+    assert len(tools) == 4, f"Expected 4 tools, got {len(tools)}"
+    return tools

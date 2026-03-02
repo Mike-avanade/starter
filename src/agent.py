@@ -45,7 +45,6 @@ class AgentState(TypedDict):
     session_id: Optional[str]
     user_id: Optional[str]
 
-    # TODO: Modify actions_taken to use an operator.add reducer
     actions_taken: Annotated[List[str], operator.add]
 
 
@@ -244,7 +243,7 @@ def update_memory(state: AgentState, config: RunnableConfig) -> Dict[str, Any]:
     return {
         "actions_taken": ["update_memory"],
         "conversation_summary": response.summary,
-        "active_documents": response.document_ids,
+        "active_documents": response.document_ids or state.get("active_documents", []),
         "next_step": "end",
         "user_input": state.get("user_input"),
         "intent": state.get("intent"),
